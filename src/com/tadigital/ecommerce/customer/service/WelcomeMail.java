@@ -37,7 +37,7 @@ public class WelcomeMail {
 	Session session = Session.getDefaultInstance(props,
 		new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("pavann.namagiri@gmail.com","pavann@1983");
+				return new PasswordAuthentication("pavann.namagiri@gmail.com","xxxx");
 			}
 		});
 
