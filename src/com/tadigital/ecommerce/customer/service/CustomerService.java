@@ -22,10 +22,25 @@ public class CustomerService  {
 		
 		return status;
 	}
+	public boolean updateCustomer(Customer customer, String oldEmail) {
+		boolean status = customerDao.updateCustomerDetails(customer,oldEmail);
+		
+		
+		return status;
+	}
 	
 	public boolean registerCustomer(Customer customer) {
 		boolean status = customerDao.insertCustomer(customer);
 		WelcomeMail wm=new WelcomeMail(customer.getEmail(),customer.getFirstName(),customer.getLastName());
+		
+		
+		
+		
+		return status;
+	}
+	public boolean ChangePasswordCustomer(Customer customer) {
+		boolean status = customerDao.insertNewPassword(customer);
+		
 		
 		
 		
