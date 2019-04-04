@@ -8,10 +8,17 @@ public class Customer {
 	
 	private String email;
 	private String password;
+	private String gender;
+	private String address;
+	private String city;
+	private String zip;
+	private String country;
+	private String state;
+	private String contact;
 	
 	public Customer() {
 	}
-	public Customer(String firstName, String lastName, String email, String password) {
+	/*public Customer(String firstName, String lastName, String email, String password) {
 		
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -19,7 +26,7 @@ public class Customer {
 		this.email = email;
 		this.password = password;
 	}
-	
+	*/
 	//GETTER OR ACCESSOR METHODS
 	
 	public String getFirstName() {
@@ -52,10 +59,68 @@ public class Customer {
 		this.password = password;
 	}
 	
+	public String getGender() {
+		return gender;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getZip() {
+		return zip;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 	@Override
 	public String toString() {
-		return "Employee [ firstName=" + firstName + ", lastName=" + 
-				lastName + ", dateOfJoining=" + ", email=" + email + 
-				", password=" + password + "]";
+		return "Customer [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password="
+				+ password + ", gender=" + gender + ", address=" + address + ", city=" + city + ", zip=" + zip
+				+ ", country=" + country + ", state=" + state + ", contact=" + contact + "]";
 	}
+
+	
 }
