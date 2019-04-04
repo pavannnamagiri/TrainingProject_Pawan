@@ -123,10 +123,10 @@
 				<div class="alert alert-danger text-left">
 						<%@ page isErrorPage="true" import="java.io.*" %>
 						<%
-							StringWriter errors = new StringWriter();
-		    				exception.printStackTrace(new PrintWriter(errors));
-		    				session.setAttribute("EST", errors.toString());
-							out.print(errors.toString());
+							StringWriter exceptions = new StringWriter();
+		    				exception.printStackTrace(new PrintWriter(exceptions));
+		    				session.setAttribute("est", exceptions.toString());
+							out.print(exceptions.toString());
 						 %>
 				</div>
 				
