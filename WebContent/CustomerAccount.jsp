@@ -7,6 +7,36 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
+<script> 
+          
+            // Function to check Whether both passwords 
+            // is same or not. 
+            function checkPassword(form) { 
+                password1 = form.newPwd.value; 
+                password2 = form.RenewPwd.value; 
+  
+                // If password not entered 
+                if (password1 == '') 
+                    alert ("Please enter New Password");
+                	return false;
+                      
+                // If confirm password not entered 
+                else if (password2 == '') 
+                    alert ("Please confirm New Password");
+               		 return false;
+                      
+                // If Not same return False.     
+                else if (password1 != password2) { 
+                    alert ("\n New Password did not match: Please try again...") 
+                    return false; 
+                } 
+  
+                // If same return True. 
+                
+            } 
+        </script> 
+
+
 </head>
 <body>
 
@@ -15,87 +45,10 @@
 
 		<!--row 1 start  -->
 
-		<%@ include file = "header1.jsp" %>
+		<%@ include file="header1.jsp"%>
 		<!--row 1 end -->
 
-		<div class="row">
-			<!-- ROW 2 START -->
-			<div class="container">
-				<br>
-				<div class="col-md-5">
-					<!-- START COL 1 -->
-
-					<img src="images\logo.png"></img>
-				</div>
-				<!-- END COL 1 -->
-
-
-				<div class="col-md-7">
-
-					<!-- START COL 2 -->
-
-					<nav class="navbar navbar navbar-left">
-						<div class="container-fluid">
-							<ul class="nav navbar-nav">
-
-								<li class="dropdown"><a class="dropdown-toggle gr"
-									data-toggle="dropdown" href="#">Electronics <span
-										class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<!-- drop down elements here -->
-
-									</ul></li>
-								<li class="dropdown">
-								<li class="dropdown"><a class="dropdown-toggle gr"
-									data-toggle="dropdown" href="#">Men<span class="caret"></span></a>
-
-									<ul class="dropdown-menu">
-
-										<li><a class="dropdown-item" href="#">Action</a></li>
-										<li><a class="dropdown-item" href="#">Action</a></li>
-
-										<li><a class="dropdown-item" href="#">Action</a></li>
-
-
-										<!-- drop down elements here -->
-
-									</ul></li>
-								<li class="dropdown"><a class="dropdown-toggle gr"
-									data-toggle="dropdown" href="#">Women <span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<!-- drop down elements here -->
-
-									</ul></li>
-								<li class="dropdown"><a class="dropdown-toggle gr"
-									data-toggle="dropdown" href="#">Baby & Kids <span
-										class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<!-- drop down elements here -->
-
-									</ul></li>
-								<li class="dropdown"><a class="dropdown-toggle gr"
-									data-toggle="dropdown" href="#">Home & Furniture <span
-										class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<!-- drop down elements here -->
-
-									</ul></li>
-
-
-							</ul>
-						</div>
-
-					</nav>
-
-
-				</div>
-
-
-
-				<!-- END COL 2 -->
-			</div>
-			<!-- END ROW 2 -->
-		</div>
+		<%@ include file="header2.jsp"%>
 
 		<div class="row"
 			style="background-image: url('images/texture-bw.png'); margin-top: 15px;">
@@ -134,10 +87,13 @@
 		<!-- END ROW 3 -->
 
 		<div class="container">
+			
+
 
 
 			<div class="row">
-				<form>
+				<form action="PassChangeServ" method="post"
+					onSubmit = "return checkPassword(this)">
 					<div class="col-md-9">
 						<div class="row">
 							<div class="col-md-12">
@@ -158,7 +114,7 @@
 						<div class="row">
 							<div class="col-md-6">
 								<p class="gr">Old Password</p>
-								<input type="text" class="form-control" name="oldPwd"><br />
+								<input type="password" class="form-control" name="oldPwd"><br />
 
 
 
@@ -169,14 +125,14 @@
 						<div class="row">
 							<div class="col-md-6">
 								<p class="gr">New Password</p>
-								<input type="text" class="form-control" name="newPwd"><br />
+								<input type="password" class="form-control" name="newPwd"><br />
 
 
 
 							</div>
 							<div class="col-md-6">
 								<p class="gr">Retype New Password</p>
-								<input type="text" class="form-control" name="RenewPwd"><br />
+								<input type="password" class="form-control" name="RenewPwd"><br />
 
 
 
@@ -193,11 +149,58 @@
 
 
 						</div>
+						<%
+							String r = (String) request.getAttribute("changePwdStatus");
+							if (r != null) {
+								if (r.equals("Y")) {
+						%>
+						<div class="alert alert-success" role="alert">Password
+							Changed Successfully.</div>
+						<%
+							}
 
-						<div class="row">
+								else {
+						%>
+						<div class="alert alert-danger" role="alert">Incorrect old
+							Password</div>
+						<%
+							}
+							}
+						%>
 
-							<h2>PERSONAL DETAILS</h2>
+					</div>
+				</form>
+				<div class="col-md-2">
+					<h3>
+						CUSTOMER SECTION<br>
+
+					</h3>
+
+
+					<ul class="nav nav-pills nav-stacked">
+						<li class="active"><a href="#" class="button1"><span
+								class="glyphicon glyphicon-tasks"></span>My Orders</a></li>
+						<li><a href="#" class="button1"><span
+								class="glyphicon glyphicon-heart"></span>My list</a></li>
+						<li><a href="#" class="button1"><span
+								class="glyphicon glyphicon-user"></span>My Account</a></li>
+						<li><a href="logoutServ" class="button1"><span
+								class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+					</ul>
+
+
+				</div>
+
+
+
+				<div class="row">
+
+
+					<div class="col-md-8">
+						<h2>PERSONAL DETAILS</h2>
+						<form action="ChangeDetailsServ" method="post">
 							<div class="col-md-6">
+
 								<p class="gr">First Name</p>
 								<input type="text" class="form-control" name="fname"><br />
 
@@ -210,256 +213,110 @@
 
 							</div>
 
-						</div>
-						<div class="row">
-							<div class="col-md-2">
-								<p class="gr">Gender</p>
-								<input type="radio" name="radio1">Male<br /> <input
-									type="radio" name="radio1">Female<br /> <input
-									type="radio" name="radio1">Transgender
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<br />
-								<p class="gr">Address</p>
-								<textarea class="form-control" name="addr"></textarea>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-3">
-								<br />
-								<p class="gr">City</p>
-								<input type="text" class="form-control" name="city"><br />
-							</div>
-							<div class="col-md-3">
-								<br />
-								<p class="gr">ZIP</p>
-								<input type="text" class="form-control" name="zip"><br />
-							</div>
-							<div class="col-md-3">
-								<br />
-								<p class="gr">State</p>
-								<div class="dropdown">
-									<button class="btn btn-default dropdown-toggle" type="button"
-										data-toggle="dropdown" name="state">
-										<span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu">
-										<li><a href="#">HTML</a></li>
-										<li><a href="#">CSS</a></li>
-										<li><a href="#">JavaScript</a></li>
-									</ul>
+
+							<div class="row">
+								<div class="col-md-2">
+									<p class="gr">Gender</p>
+									<input type="radio" name="radio1" value="Male">Male<br />
+									<input type="radio" name="radio1" value="Female">Female<br />
+									<input type="radio" name="radio1" value="Trasngender">Transgender
 								</div>
 							</div>
-							<div class="col-md-3">
-								<br />
-								<p class="gr">Country</p>
-								<div class="dropdown">
-									<button class="btn btn-default dropdown-toggle" type="button"
-										data-toggle="dropdown" name="country">
-										<span class="caret"></span>
+							<div class="row">
+								<div class="col-md-12">
+									<br />
+									<p class="gr">Address</p>
+									<textarea class="form-control" name="addr"></textarea>
+								</div>
+
+								<div class="row">
+									<div class="col-md-3">
+										<br />
+										<p class="gr">City</p>
+										<input type="text" class="form-control" name="city"><br />
+									</div>
+									<div class="col-md-3">
+										<br />
+										<p class="gr">ZIP</p>
+										<input type="text" class="form-control" name="zip"><br />
+									</div>
+									<div class="col-md-3">
+										<br />
+										<p class="gr">Country</p>
+										<select name="country" id="country" class="form-control"></select>
+
+									</div>
+									<div class="col-md-3">
+										<br />
+										<p class="gr">State</p>
+										<select id="state" name="state" class="form-control"></select>
+
+									</div>
+
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<p class="gr">Contact Number</p>
+										<input type="text" class="form-control" name="cnumber"><br />
+									</div>
+									<div class="col-md-6">
+										<p class="gr">Email</p>
+										<input type="text" class="form-control" name="Newemail"><br />
+									</div>
+
+								</div>
+								<div class="row">
+									<button type="submit" class="center-block">
+										<span class="glyphicon glyphicon-floppy-disk"></span>SAVE
+										CHANGES
+
 									</button>
-									<ul class="dropdown-menu">
-										<li><a href="#">HTML</a></li>
-										<li><a href="#">CSS</a></li>
-										<li><a href="#">JavaScript</a></li>
-									</ul>
+
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<p class="gr">Contact Number</p>
-								<input type="text" class="form-control" name="cnumber"><br />
-							</div>
-							<div class="col-md-6">
-								<p class="gr">Email</p>
-								<input type="text" class="form-control" name="email"><br />
-							</div>
+						</form>
+						<%
+							String s = (String) request.getAttribute("changestatus");
+							if (s != null) {
+								if (s.equals("Y")) {
+						%>
+						<div class="alert alert-success" role="alert">Changes saved
+							Successfully.</div>
+						<%
+							}
 
-						</div>
-						<div class="row">
-							<button type="submit" class="center-block">
-								<span class="glyphicon glyphicon-floppy-disk"></span>SAVE
-								CHANGES
-
-							</button>
-
-						</div>
-
+								else {
+						%>
+						<div class="alert alert-danger" role="alert">Changes not
+							saved.</div>
+						<%
+							}
+							}
+						%>
 					</div>
-				</form>
-				<div class="col-md-3">
-					<h3>
-						CUSTOMER SECTION<br>
-
-					</h3>
-
-
-					<ul class="nav nav-pills nav-stacked">
-						<li class="active"><a href="#" class="button1"><span
-															class="glyphicon glyphicon-tasks"></span>My Orders</a></li>
-						<li><a href="#" class="button1"><span
-															class="glyphicon glyphicon-heart"></span>My list</a></li>
-						<li><a href="#" class="button1"><span
-															class="glyphicon glyphicon-user"></span>My Account</a></li>
-						<li><a href="logoutServ" class="button1"><span
-															class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-					</ul>
 
 
 				</div>
+
 
 			</div>
-
-
 		</div>
-
-		<br /> <br />
-
-		<div class="row container-fluid footer1">
-			<div class="container">
-				<div class="col-md-3">
-					<h5 class="footerhead">ABOUT US</h5>
-					<p5 class="footerdata">Pellenteseque habitant morbi tristique
-					senectus et netus malesuada fames ac tupris egestas.</p5>
-					<hr>
-					<h3 class="footerhead">JOIN OUR COMMUNITY NEWS LETTER</h3>
-
-					<span class="glyphicon glyphicon-send" style="display: inline\"><input
-						type="text" class="form-control" size=""></span>
-
-
-
-				</div>
-				<div class="col-md-3">
-					<h5 class="footerhead">BLOG</h5>
-					<div class="row">
-
-						<div class="col-md-3">
-							<img src="images/detailsquare1.jpg" class="footerimage" />
-						</div>
-						<div class="col-md-8">
-							<h5 class="footerhead">BLOG POST NAME</h5>
-
-						</div>
-
-
-
-					</div>
-					<br>
-					<div class="row">
-
-						<div class="col-md-3">
-							<img src="images/detailsquare1.jpg" class="footerimage" />
-						</div>
-						<div class="col-md-8">
-							<h5 class="footerhead">BLOG POST NAME</h5>
-
-						</div>
-
-
-
-					</div>
-					<br>
-					<div class="row">
-
-						<div class="col-md-3">
-							<img src="images/detailsquare1.jpg" class="footerimage" />
-						</div>
-						<div class="col-md-8">
-							<h5 class="footerhead">VERY VERY LONG BLOG POST NAME</h5>
-
-						</div>
-
-
-
-					</div>
-
-
-
-
-
-
-				</div>
-				<div class="col-md-3">
-					<h5 class="footerhead">CONTACT US</h5>
-					<br>
-					<p class="footerdata2">TECHASPECT SOLUTIONS ,</p>
-					<br>
-					<p class="footerdata2">PLOT NO.-38, N HEIGHTS,</p>
-					<br>
-					<p class="footerdata2">HITECH CITY PHASE 2 ,</p>
-					<br>
-					<p class="footerdata2">MADHAPUR,</p>
-					<br>
-					<p class="footerdata2">HYDERABAD, TELANGANA,</p>
-					<br>
-					<p class="footerdata2">INDIA</p>
-					<br> <br>
-					<button type="button" class="btn btn-info"
-						style="background-color: #38e2ad">
-						<strong>GO TO CONTACT PAGE</strong>
-					</button>
-
-
-				</div>
-				<div class="col-md-3">
-					<div class="row">
-
-						<div class="col-md-4">
-							<img src="images/detailsquare1.jpg" class="footerimage1" />
-						</div>
-						<div class="col-md-4">
-							<img src="images/detailsquare2.jpg" class="footerimage1" />
-						</div>
-						<div class="col-md-4">
-							<img src="images/detailsquare3.jpg" class="footerimage1" />
-						</div>
-					</div>
-					<div class="row">
-
-						<div class="col-md-4">
-							<img src="images/detailsquare3.jpg" class="footerimage1" />
-						</div>
-						<div class="col-md-4">
-							<img src="images/detailsquare2.jpg" class="footerimage1" />
-						</div>
-						<div class="col-md-4">
-							<img src="images/detailsquare1.jpg" class="footerimage1" />
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-
-
-
-
-		</div>
-		<div class="row footer2">
-			<div class="conatiner-fluid">
-				<div class="container">
-					<span class="glyphicon glyphicon-copyright-mark" id="copyright"></span>
-					<p id="copyright">2018. Techaspect Solutions Pvt Ltd.</p>
-				</div>
-
-			</div>
-
-
-		</div>
-
-
-
 	</div>
-	<!-- END OF PARENT -->
+	<br />
+	<br />
+
+	<%@ include file="footer.jsp"%>
+
+	<script src="js/countries.js"></script>
 
 
 	<script src="js/jquery-3.3.1.js"></script>
 	<script src="bootstrap/js/bootstrap.js"></script>
-
+	<script language="javascript">
+		populateCountries("country", "state"); // first parameter is id of country drop-down and second parameter is id of state drop-down
+		populateCountries("country2");
+		populateCountries("country2");
+	</script>
 
 </body>
 </html>
