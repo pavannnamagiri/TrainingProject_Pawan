@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import com.tadigital.ecommerce.customer.entity.Customer;
 import com.tadigital.ecommerce.customer.service.CustomerService;
 
@@ -30,6 +31,25 @@ public class ChangeDetailsController extends HttpServlet {
 		String newMail=req.getParameter("Newemail");
 		String zip=req.getParameter("zip");
 		
+		String name=(String) session.getAttribute("USERNAME");
+		
+		if(fname=="") {
+			
+			fname=name.substring(0,name.indexOf(" "));
+			
+			
+			
+		}
+		if(lname=="") {
+			
+			lname=name.substring(name.indexOf(" ")+1);
+			
+			
+			
+		}
+		String username=fname+" "+lname;
+		
+		session.setAttribute("USERNAME", username);
 		
 		String oldEmail=(String)session.getAttribute("EMAIL");
 		

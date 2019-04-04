@@ -15,6 +15,39 @@ import com.tadigital.ecommerce.customer.entity.Customer;
 
 
 public class CustomerDao extends Dao {
+	
+	
+	public boolean insertNewPassword(Customer customer) {
+		boolean status = false;
+		
+		Connection con = openConnection();
+		Statement stmt = openStatement(con);
+	
+		try {
+			String sql = "UPDATE customer_info SET pwd='"+customer.getPassword()+"'"+"WHERE email='"+customer.getEmail()+"'";			
+			
+			int rows = stmt.executeUpdate(sql);
+			if(rows != 0) {
+				status = true;
+				
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		} finally {
+			closeStatement(stmt);
+			
+			closeConnection(con);
+		}
+		
+		return status;
+		
+		
+		
+		
+		
+		
+	}
+	
 	public boolean selectCustomerByEmailAndPassword(Customer customer) {
 		boolean status = false;
 		
@@ -44,6 +77,31 @@ public class CustomerDao extends Dao {
 		
 		return status;
 	}
+	public boolean updateCustomerDetails(Customer customer, String oldEmail) {
+		boolean status = false;
+		
+		Connection con = openConnection();
+		Statement stmt = openStatement(con);
+		
+		
+		try {
+			String sql = "UPDATE customer_info SET fname='"+customer.getFirstName()+"' ,lname='"+customer.getLastName()+"', addr='"+customer.getAddress() +"', city='"+customer.getCity()+"', gender='"+customer.getGender()+"', zip='"+customer.getZip()+"', country='"+customer.getCountry()+"', state='"+customer.getState()+"', contact='"+customer.getContact()+"', email='"+customer.getEmail()+"'"+"WHERE email='"+oldEmail+"'";			
+			
+			int rows = stmt.executeUpdate(sql);
+			if(rows != 0) {
+				status = true;
+				
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		} finally {
+			closeStatement(stmt);
+			
+			closeConnection(con);
+		}
+		
+		return status;
+	}
 	
 	public boolean insertCustomer(Customer customer) {
 		boolean status = false;
@@ -60,7 +118,7 @@ public class CustomerDao extends Dao {
 				ResultSet rs = stmt.executeQuery(sql1);
 					if(rs.next()) {
 						status1 = true;
-						System.out.println(rs.getString(1));
+						
 						
 						
 				
