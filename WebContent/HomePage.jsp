@@ -7,17 +7,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE-edge">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/custom.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" />
 </head>
 <body>
 
 	<!--  Parent container start -->
-	<%@include file="header11.jsp" %>
+	<%@include file="header11.jsp"%>
 	<br>
 
 	<div class="row">
@@ -142,8 +148,7 @@
 		<div class="row">
 			<div class="col-md-2">
 				<div class="thumbnail mycards">
-					<img class="card-img-top" src="images\shoes1.jpeg"
-						alt="Card image">
+					<img class="card-img-top" src="images\shoes1.jpeg" alt="Card image">
 					<div class="card-body">
 						<h6>Adidas, Reebok & Puma</h6>
 						<p class="card-text">Upto 50% + Extra 5% off.</p>
@@ -539,144 +544,8 @@
 
 
 	<br>
-	<div class="container-fluid">
-		<div class="row footer1">
-			<div class="container">
-				<div class="col-md-3">
-					<h5 class="footerhead">ABOUT US</h5>
-					<p5 class="footerdata">Pellenteseque habitant morbi tristique
-					senectus et netus malesuada fames ac tupris egestas.</p5>
-					<hr>
-					<h3 class="footerhead">JOIN OUR COMMUNITY NEWS LETTER</h3>
-
-					<span class="glyphicon glyphicon-send" style="display: inline\"><input
-						type="text" class="form-control" size=""></span>
+	<%@ include file="footer.jsp"%>
 
 
-
-				</div>
-				<div class="col-md-3">
-					<h5 class="footerhead">BLOG</h5>
-					<div class="row">
-
-						<div class="col-md-3">
-							<img src="images/detailsquare1.jpg" class="footerimage" />
-						</div>
-						<div class="col-md-8">
-							<h5 class="footerhead">BLOG POST NAME</h5>
-
-						</div>
-
-
-
-					</div>
-					<br>
-					<div class="row">
-
-						<div class="col-md-3">
-							<img src="images/detailsquare1.jpg" class="footerimage" />
-						</div>
-						<div class="col-md-8">
-							<h5 class="footerhead">BLOG POST NAME</h5>
-
-						</div>
-
-
-
-					</div>
-					<br>
-					<div class="row">
-
-						<div class="col-md-3">
-							<img src="images/detailsquare1.jpg" class="footerimage" />
-						</div>
-						<div class="col-md-8">
-							<h5 class="footerhead">VERY VERY LONG BLOG POST NAME</h5>
-
-						</div>
-
-
-
-					</div>
-
-
-
-
-
-
-				</div>
-				<div class="col-md-3">
-					<h5 class="footerhead">CONTACT US</h5>
-					<br>
-					<p class="footerdata2">TECHASPECT SOLUTIONS ,</p>
-					<br>
-					<p class="footerdata2">PLOT NO.-38, N HEIGHTS,</p>
-					<br>
-					<p class="footerdata2">HITECH CITY PHASE 2 ,</p>
-					<br>
-					<p class="footerdata2">MADHAPUR,</p>
-					<br>
-					<p class="footerdata2">HYDERABAD, TELANGANA,</p>
-					<br>
-					<p class="footerdata2">INDIA</p>
-					<br> <br>
-					<button type="button" class="btn btn-info"
-						style="background-color: #38e2ad">
-						<strong>GO TO CONTACT PAGE</strong>
-					</button>
-
-
-				</div>
-				<div class="col-md-3">
-					<div class="row">
-
-						<div class="col-md-4">
-							<img src="images/detailsquare1.jpg" class="footerimage1" />
-						</div>
-						<div class="col-md-4">
-							<img src="images/detailsquare2.jpg" class="footerimage1" />
-						</div>
-						<div class="col-md-4">
-							<img src="images/detailsquare3.jpg" class="footerimage1" />
-						</div>
-					</div>
-					<div class="row">
-
-						<div class="col-md-4">
-							<img src="images/detailsquare3.jpg" class="footerimage1" />
-						</div>
-						<div class="col-md-4">
-							<img src="images/detailsquare2.jpg" class="footerimage1" />
-						</div>
-						<div class="col-md-4">
-							<img src="images/detailsquare1.jpg" class="footerimage1" />
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-
-
-
-
-		</div>
-		<div class="row footer2">
-			<div class="conatiner-fluid">
-				<div class="container">
-					<span class="glyphicon glyphicon-copyright-mark" id="copyright"></span>
-					<p id="copyright">2018. Techaspect Solutions Pvt Ltd.</p>
-				</div>
-
-			</div>
-
-
-		</div>
-
-
-	</div>
-
-	
-	
 </body>
 </html>
