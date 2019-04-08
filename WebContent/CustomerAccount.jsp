@@ -21,7 +21,7 @@
                 	return false;
                       
                 // If confirm password not entered 
-                else if (password2 == '') 
+                 if (password2 == '') 
                     alert ("Please confirm New Password");
                		 return false;
                       
@@ -41,14 +41,15 @@
 <body>
 
 	<!--  Parent container start -->
-	<div class="container-fluid">
+	
 
 		<!--row 1 start  -->
 
 		<%@ include file="header1.jsp"%>
 		<!--row 1 end -->
-
+		<br>
 		<%@ include file="header2.jsp"%>
+		
 
 		<div class="row"
 			style="background-image: url('images/texture-bw.png'); margin-top: 15px;">
@@ -170,7 +171,7 @@
 
 					</div>
 				</form>
-				<div class="col-md-2">
+				<div class="col-md-3">
 					<h3>
 						CUSTOMER SECTION<br>
 
@@ -301,7 +302,7 @@
 
 			</div>
 		</div>
-	</div>
+	
 	<br />
 	<br />
 
